@@ -5,12 +5,13 @@ const Instance = axios.create({
 });
 
 Instance.interceptors.request.use((conf) => {
-  const token = localStorage.getItem('token');
+  const sessionUser = JSON.parse(localStorage.getItem('sessionuser'));
 
-  if (token) {
-    conf.headers.Authorization = `Bearer ${token}`;
-    conf.headers['Content-Type'] = 'application/json';
+  if (sessionUser && sessionUser.token) {
+    conf.headers.Authorization = `Bearer ${sessionUser.token}`;
   }
+
+  conf.headers['Content-Type'] = 'application/json';
 
   return conf;
 });

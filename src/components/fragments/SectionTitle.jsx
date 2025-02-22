@@ -10,7 +10,7 @@ function SectionTitle({ className, children }) {
 
 SectionTitle.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
 
 export default SectionTitle;

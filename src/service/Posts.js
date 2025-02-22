@@ -4,7 +4,8 @@ export default class Posts {
   static async getAllPosts() {
     try {
       const result = await Instance.get('/posts/all');
-      return result.data;
+
+      return result.data.data;
     } catch (error) {
       console.error('Error fetching posts:', error | error.message);
       throw error;
@@ -13,8 +14,9 @@ export default class Posts {
 
   static async getPostById(id) {
     try {
-      const result = await Instance.get(`/post/${id}`);
-      return result.data;
+      const result = await Instance.get(`/posts/id/${id}`);
+
+      return result.data.data;
     } catch (error) {
       console.error('Error fetching posts:', error | error.message);
       throw error;
