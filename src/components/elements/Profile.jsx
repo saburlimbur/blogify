@@ -2,11 +2,12 @@ import toast from 'react-hot-toast';
 import Card from '../fragments/Card';
 
 function Profile() {
-  const { result: user } = JSON.parse(localStorage.getItem('sessionuser'));
-  const notify = () => toast.success(`Hello, ${user?.username}`);
+  const { result } = JSON.parse(localStorage.getItem('sessionuser'));
+  const { username, position } = result?.user || {};
 
-  const { username, position } = user;
-  const randomId = Math.floor(Math.random() * 99) + 1;
+  const notify = () => toast.success(`Hello, ${username}`);
+
+  const randomId = Math.floor(Math.random() * 1) + 1;
 
   return (
     <Card className="flex items-center gap-2 cursor-pointer" onClick={notify}>
@@ -15,7 +16,7 @@ function Profile() {
         className="w-10 h-10 rounded-full object-cover"
       />
       <Card.Header className="flex flex-col">
-        <h5 className="text-sm">{username}</h5>
+        <h5 className="text-sm text-white">{username}</h5>
         <p className="text-xs text-gray-400 font-medium">{position}</p>
       </Card.Header>
     </Card>

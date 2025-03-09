@@ -22,4 +22,15 @@ export default class Posts {
       throw error;
     }
   }
+
+  static async getPostBySlug(slug) {
+    try {
+      const result = await Instance.get(`/posts/slug/${slug}`);
+
+      return result.data.data;
+    } catch (error) {
+      console.error('Error fetching posts:', error | error.message);
+      throw error;
+    }
+  }
 }

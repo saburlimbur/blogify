@@ -16,7 +16,10 @@ export const useLoginUser = () => {
 
     onSuccess: (payload) => {
       toast.success('Login user successfully!');
-      window.location.href = '/';
+
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 2000);
       console.log('Login user successfully:', payload);
     },
 

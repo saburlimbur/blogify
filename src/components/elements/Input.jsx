@@ -22,7 +22,7 @@ function Input(props) {
   } = props;
 
   return (
-    <div>
+    <>
       {children}
       <input
         icons={icons}
@@ -41,7 +41,7 @@ function Input(props) {
         min={min}
         max={max}
       />
-    </div>
+    </>
   );
 }
 
